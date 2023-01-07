@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hee's App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="/public/main.css">
+  </head>
+  <body>
+    
+    <%- include('nav.html') %>
+
+      <!-- 서버에서 가져온 할 일 리스트
+      <h1>서버에서 가져온 할 일 리스트</h1>
+      <% for (var i = 0; i < posts.length; i ++) { %>
+        <h4>오늘의 할 일 : <%= posts[i].제목 %></h4>
+        <p>마감날짜 : <%= posts[i].날짜 %></p>
+        <button>삭제</button>
+      <% } %> -->
+
+      <h2 class="m1-2 my-3 text-center">서버에서 가져온 할 일 리스트</h1>
+       
+        <!-- 검색 기능 -->
+        <div class="container input-group mb-2">
+          <input class="form-control" id="search-input">
+          <button class="input-group-append btn btn-warning" id="search">검색</button>
+        </div>
+
+        
+
+
+        <div class="container">
+      <ul class="list-group">
+        <% for (var i = 0; i < posts.length; i++){ %>
+        <li class="list-group-item">
+          <p>글 번호 : <%= posts[i]._id%></p>
+          <h4 onclick="location.href='/detail/<%= posts[i]._id %>'" style="cursor:pointer" >오늘의 할 일 : <%= posts[i].제목 %> </h4>
+          <p> 마감 날짜 : <%= posts[i].날짜 %> </p>
+          <button onclick="location.href='/edit/<%= posts[i]._id %>'" class="btn btn-primary edit " data-id="<%= posts[i]._id %>">수정</button>
+          <button class="btn btn-danger delete " data-id="<%= posts[i]._id %>">삭제</button>
+        </li>
+        <% } %>
+      </ul>
+    </div>
+
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+      
+
+      <script>
+        $('.delete').click(function(e){
+          var text_number =  e.target.dataset.id;
+          var now_click = $(this);
+          $.ajax({
+            method : 'DELETE',
+            url : '/delete',
+            data : { _id : text_number}
+          }).done(function(결과){
+            now_click.parent('li').fadeOut();
+            //AJAX 성공시 실행할 코드는 여기
+          }).fail(function(에러){
+
+          })
+        });
+      </script>
+
+      <script>
+      $('#search').click(function(){
+        //사용자가 input에 입력한 값
+        var searchInput = $('#search-input').val();
+        //url을 갈아치워주세요 라는 거.
+        window.location.replace('/search?value=' + searchInput)
+      });
+      </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  </body>
+</html>

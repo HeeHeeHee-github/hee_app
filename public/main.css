@@ -1,0 +1,163 @@
+@font-face {
+    font-family: 'LeferiPoint-WhiteObliqueA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-WhiteObliqueA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ClimateCrisisKR-1979';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/ClimateCrisisKR-1979.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'LeferiPoint-WhiteObliqueA';
+}
+
+.navbar-brand {
+    font-family: 'ClimateCrisisKR-1979';
+}
+
+.login-title{
+    font-size:xx-large;
+  }
+
+.login-text{
+    font-size: larger;
+}
+
+.mypage_text {
+    font-size:x-large;
+}
+
+.nav_text {
+    font-size:x-large;
+}
+
+.jumbotron {
+    background-color: rgb(255, 255, 255);
+    font-family: 'GmarketSansMedium';
+    font-weight: 700;
+    color:rgb(95, 90, 90);
+}
+
+.nav_color {
+    background-color:rgba(248, 233, 182, 0.863);
+}
+
+.login_btn {
+    background-color: rgba(37, 104, 50, 0.74);
+    border: none;
+}
+
+.signup_btn {
+    background-color: rgba(187, 61, 61, 0.712);
+    border: none;
+}
+
+.main_btn {
+    border: none;
+    background-color: rgba(83, 139, 190, 0.808);
+    font-family: 'LeferiPoint-WhiteObliqueA';
+}
+
+.edit_btn {
+    border: none;
+    background-color: rgba(83, 139, 190, 0.808);
+}
+
+
+
+    /*서치바*/
+
+    #search_form {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        transition: all 1s;
+        width: 50px;
+        height: 50px;
+        background: cadetblue;
+        box-sizing: border-box;
+        border-radius: 25px;
+        border: 4px solid cadetblue;
+        padding: 5px;
+        }
+    
+    
+    #search_form input{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;;
+        height: 42.5px;
+        line-height: 30px;
+        outline: 0;
+        border: 0;
+        display: none;
+        font-size: 1em;
+        border-radius: 20px;
+        padding: 0 20px;
+    }
+    
+    /*검색버튼*/
+    .fa{
+        box-sizing: border-box;
+        padding: 7px;
+        width: 42.5px;
+        height: 42.5px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-radius: 50%;
+        color: #ffffff;
+        text-align: center;
+        font-size: 1.2em;
+        transition: all 1s;
+    }
+    
+    
+    #search_form:hover,
+    #search_form:valid{
+        width: 250px;
+        cursor: pointer;
+    }
+    
+    #search_form:hover input,
+    #search_form:valid input{
+        display: block;
+    }
+    
+    #search_form:hover .fa,
+    #search_form:valid .fa{
+        background: white;
+        color: #5f9ea0;
+    }
+    
+    /*clear 버튼*/
+    #search_form #clear-btn {
+      display: none;
+      position: absolute;
+      top: 70px;
+      bottom:0;
+      left: 0;
+      right: 0;
+      font-size: 20px;
+      color: rgb(46, 71, 92);
+      text-align: center; 
+      width: 100%;
+    }
+    
+    #search_form:valid #clear-btn {
+      display: block;
+    }
