@@ -1,7 +1,5 @@
 # Node.js와 MongoDB를 활용한 페이지
 
-[Hee's App](https://my-project-hees-app.du.r.appspot.com/)
-
 
 ### 기능 
 - [x] 사용자의 세션정보를 저장한 로그인 기능 구현
