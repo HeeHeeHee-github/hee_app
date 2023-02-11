@@ -19,7 +19,9 @@
       <h4 class="text-center mb-3">업로드 페이지</h4>
 
       <form method="POST" action="/upload" enctype="multipart/form-data">
-        <input type="file" />
+        <!-- 파일을 여러 개 선택할 수 있는 input으로 수정하면 여러 개 업로드 가능 -->
+        <input type="file" name="profile" />
+        <button type="submit">전송</button>
       </form>
     </div>
 

@@ -1,19 +1,6 @@
-@font-face {
-  font-family: "LeferiPoint-WhiteObliqueA";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-WhiteObliqueA.woff")
-    format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
+/* FONT */
 
-@font-face {
-  font-family: "ClimateCrisisKR-1979";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/ClimateCrisisKR-1979.woff2")
-    format("woff2");
-  font-weight: 900;
-  font-style: normal;
-}
-
+/* 메인 화면 font */
 @font-face {
   font-family: "GmarketSansMedium";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
@@ -22,12 +9,30 @@
   font-style: normal;
 }
 
+/* 전체 font */
+@font-face {
+  font-family: "HallymGothic-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2204@1.0/HallymGothic-Regular.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* nav 로고 font */
+@font-face {
+  font-family: "Katuri";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_13@1.0/Katuri.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
-  font-family: "LeferiPoint-WhiteObliqueA";
+  font-family: "HallymGothic-Regular";
 }
 
 .navbar-brand {
-  font-family: "ClimateCrisisKR-1979";
+  font-family: "Katuri";
 }
 
 .login-title {

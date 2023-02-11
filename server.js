@@ -251,8 +251,38 @@ app.get("/search", (req, res) => {
     });
 });
 
+// 설치한'multer' 라이브러리 불러오는 방법
+let multer = require("multer");
+let storage = multer.diskStorage({
+  // ./public/image에 저장
+  destination: function (req, file, cb) {
+    cb(null, "./public/image");
+  },
+  // 파일 이름 설정 가능
+  // 파일명에 날짜도 붙이기 가능 ex) cb(null, file.originalname + new Date());
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  },
+  // 파일 확장자 거르기, limit 도 가능
+});
+
+let upload = multer({ storage: storage });
+
+// 업로드한 이미지는 DB에 저장하지 않고 ./public/image에 저장
 app.get("/upload", function (req, res) {
   res.render("upload.ejs");
+});
+
+// 누군가가 /upload라는 경로로 post 요청을 하면 upload 함수를 실행
+// single 이 아니라 array라고 쓰면 여러개 받을 수 있음
+// ex) upload.array('프로필', 10)   ==> 10은 받을 최대 개수를 의미
+// 이렇게 설정하면 upload.ejs로 가서 input을 고쳐야한다.
+app.post("/upload", upload.single("profile"), function (req, res) {
+  res.send("업로드 완료");
+});
+
+app.get("/image/:imageName", function (req, res) {
+  res.sendFile(__dirname + "/public/image/" + req.params.imageName);
 });
 
 app.use("/", require("./routes/loginRoutes.js"));
