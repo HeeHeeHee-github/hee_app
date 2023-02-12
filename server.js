@@ -46,6 +46,7 @@ app.get("/", function (req, res) {
 //     res.render('write.ejs')
 // });
 
+//회원가입
 app.get("/signup", function (req, res) {
   res.render("signup.ejs");
 });
@@ -68,6 +69,7 @@ app.get("/signup", function (req, res) {
 
 // })
 
+//글 수정
 app.get("/edit/:id", function (req, res) {
   db.collection("post").findOne(
     { _id: parseInt(req.params.id) },
@@ -77,6 +79,7 @@ app.get("/edit/:id", function (req, res) {
   );
 });
 
+//글 수정
 app.put("/edit", function (req, res) {
   db.collection("post").updateOne(
     { _id: parseInt(req.body.id) },
